@@ -24,13 +24,13 @@ import { useRouter } from "next/router";
       ];
     
       return (
-        <div className="h-screen bg-black text-white py-20 px-6 pt-24">
-          <h1 className="text-4xl font-bold text-center mb-10">Our Products</h1>
+        <div className="h-screen bg-gray-300 text-black py-20 px-6 pt-24">
+          <h1 className="text-4xl font-bold text-center pt-7 mb-10">Our Products</h1>
     
           {/* Product List */}
           <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {products.map((product) => (
-              <div key={product.id} className="bg-gray-800 p-6 rounded-lg text-center">
+              <div key={product.id} className="bg-gray-200 p-6 rounded-lg text-center">
                 {/* Product Image */}
                 {/* Image with Motion Effect */}
             <motion.img 
