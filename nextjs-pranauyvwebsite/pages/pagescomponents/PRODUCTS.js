@@ -14,7 +14,7 @@ export default function PRODUCTS() {
       description: "An AI-powered water bottle that monitors hydration levels and provides smart reminders for optimal health."
     },
     {
-      id: 3,
+      id: 2,
       name: "Ayuv Hybrid Bed V1 Bed to Wheelchair Conversion Product",
       image: "/bed.jpeg",
       description: "A revolutionary bed that converts into a wheelchair, providing ease of movement for patients and the elderly."
@@ -93,14 +93,25 @@ export default function PRODUCTS() {
 
             {/* Button Section - Now Always at Bottom */}
             <div className="mt-auto">
-              <motion.button
-                onClick={() => router.push(`/product/${product.id}`)}
-                className="mt-4 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Buy / Remind Me
-              </motion.button>
+              {product.id === 1 ? (
+                <motion.button
+                  onClick={() => router.push("/pagescomponents/water-bottle")}
+                  className="mt-4 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Buy / Remind Me
+                </motion.button>
+              ) : (
+                <motion.button
+                  onClick={() => router.push("/pagescomponents/bed")}
+                  className="mt-4 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Buy / Remind Me
+                </motion.button>
+              )}
             </div>
           </motion.div>
         ))}

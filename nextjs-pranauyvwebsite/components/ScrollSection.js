@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const slides = [
-  { id: 1, title: 'Latest Updates & Product Releases', description: 'Discover the latest advancements in our product line and upcoming releases.', link: '/home/updates', image: '/mnt/data/A_2D_digital_graphic_layout_showcases_five_rectang.png' },
+  { id: 1, title: 'Latest Updates & Product Releases', description: 'Discover the latest advancements in our product line and upcoming releases.', link: 'pagescomponents/Blogandupdates', image: '/mnt/data/A_2D_digital_graphic_layout_showcases_five_rectang.png' },
   { id: 2, title: 'AI & IoT Innovations', description: 'Next-gen healthcare technology powered by AI and IoT.', link: '/home/ai-iot', image: '/mnt/data/A_2D_digital_graphic_layout_showcases_five_rectang.png' },
   { id: 3, title: 'Seamless Hospital Management', description: 'Digitizing medical records and improving hospital efficiency.', link: '/home/hospitals', image: '/mnt/data/A_2D_digital_graphic_layout_showcases_five_rectang.png' },
   { id: 4, title: 'Smart Health Monitoring', description: 'Real-time AI-powered insights for proactive healthcare.', link: '/home/monitoring', image: '/mnt/data/A_2D_digital_graphic_layout_showcases_five_rectang.png' },
