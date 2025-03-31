@@ -2,29 +2,48 @@ import React from "react";
 
 const Careers = () => {
   return (
-    <div className="bg-[#ccd8e9] pt-24 py-16 px-6 min-h-screen pb-25">
-      <h1 className="text-4xl font-bold text-center mb-6">Careers</h1>
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold">Why Work With Us?</h2>
-        <p className="mt-2 text-gray-700">
-          We are a company that develops IoT products, projects, research papers, and websites. Our team is made up of dedicated professionals in both R&D and IT departments, working collaboratively to drive innovation.
-        </p>
-      </section>
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold">Our Departments</h2>
-        <div className="mt-4">
-          <h3 className="text-xl font-medium">R&D Department</h3>
-          <p className="text-gray-700">
-            Our R&D team focuses on product design, circuit design, PCB design, BOM creation, assembly, and prototype testing. We also conduct research projects and write technical papers to advance industry knowledge.
+    <div className="bg-gray-200 pt-24 py-16 px-6 min-h-screen">
+      <div className="max-w-6xl mx-auto">
+        {/* Title */}
+        <h1 className="text-5xl font-extrabold text-center pt-7 text-gray-800 mb-10">
+          Join Our Team 🚀
+        </h1>
+
+        {/* Why Work With Us */}
+        <section className="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-12">
+          <h2 className="text-3xl font-bold text-blue-900">Why Work With Us?</h2>
+          <p className="mt-4 text-gray-700 leading-relaxed">
+            At <span className="font-semibold">Pranayuv</span>, we are committed to building
+            innovative IoT solutions, cutting-edge research papers, and high-quality web & app development.
+            Join a team of passionate professionals working together to revolutionize technology.
           </p>
-        </div>
-        <div className="mt-6">
-          <h3 className="text-xl font-medium">IT Department</h3>
-          <p className="text-gray-700">
-            The IT team specializes in creating websites, developing apps, training AI models, and much more. Our focus is on building cutting-edge digital solutions that enhance user experience and efficiency.
-          </p>
-        </div>
-      </section>
+        </section>
+
+        {/* Our Departments */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* R&D Department */}
+          <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg transition-all hover:scale-105">
+            <h3 className="text-2xl font-bold text-blue-900 flex items-center">
+              🔬 R&D Department
+            </h3>
+            <p className="mt-3 text-gray-700 leading-relaxed">
+              Our Research & Development team focuses on product design, circuit and PCB layout, BOM creation,
+              assembly, and prototype testing. We also contribute to research projects and publish technical papers.
+            </p>
+          </div>
+
+          {/* IT Department */}
+          <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg transition-all hover:scale-105">
+            <h3 className="text-2xl font-bold text-blue-900 flex items-center">
+              💻 IT Department
+            </h3>
+            <p className="mt-3 text-gray-700 leading-relaxed">
+              Our IT team specializes in website & app development, AI training, cloud solutions, and digital automation.
+              We are at the forefront of technology, building seamless user experiences and next-gen solutions.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

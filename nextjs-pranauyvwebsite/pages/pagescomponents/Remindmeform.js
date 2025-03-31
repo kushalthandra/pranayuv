@@ -46,7 +46,10 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: "url('/Remainderbg.jpg')" }}
+    >
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Your Contact Details</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -67,8 +70,8 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             className="w-full p-2 border"
-              />
-               <input
+          />
+          <input
             type="text"
             name="phone"
             placeholder="Phone Number"
@@ -87,7 +90,6 @@ export default function ContactForm() {
             className="w-full p-2 border rounded bg-white"
           >
             <option value="RENCHAGE R0 AI-based Water Bottle">RENCHAGE R0 AI-based Water Bottle</option>
-            <option value="AyuvWalk A Diabetic Shoe">AyuvWalk A Diabetic Shoe</option>
             <option value="Ayuv Hybrid Bed V1 Bed to Wheelchair Conversion Product">Ayuv Hybrid Bed V1 Bed to Wheelchair Conversion Product</option>
           </select>
 
