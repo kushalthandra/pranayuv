@@ -1,4 +1,5 @@
 import { MdContactPhone } from "react-icons/md";
+import Link from 'next/link';
 function Footer() {
   return (
     <footer style={{ backgroundColor: "#0f5091" }} className="text-white py-6">
@@ -36,9 +37,11 @@ function Footer() {
           {/* Contact Column */}
           <div id="contact" className="pt-5">
             <button className="px-2 py-1 bg-white text-blue-800 font-semibold text-lg rounded-lg hover:bg-blue-200 transition animate-fadeInUp">               
-              <a href="/pagescomponents/contact" className="text-xl font-semibold underline hover:underline flex justify-center items-center gap-2 mr-2">
-                Contact <MdContactPhone />
-              </a>                        
+            <Link href="/pagescomponents/contact" legacyBehavior>
+            <a className="text-xl font-semibold underline hover:underline flex justify-center items-center gap-2 mr-2">
+             Contact <MdContactPhone />
+             </a>
+              </Link>                      
             </button>
           </div>
         </div>

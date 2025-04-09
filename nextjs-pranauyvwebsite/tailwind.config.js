@@ -9,7 +9,13 @@ module.exports = {
       fontFamily: {
         waterfall: ['Waterfall', 'cursive'],
       },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out',
+      },
+      
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };
