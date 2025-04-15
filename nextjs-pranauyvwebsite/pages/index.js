@@ -9,6 +9,7 @@ export default function Home() {
       <NavBar />
       <SwiperComponent />
       <ScrollSection />
+      
     </div>
   );
 }

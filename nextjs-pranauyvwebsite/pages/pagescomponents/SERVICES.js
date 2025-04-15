@@ -5,78 +5,81 @@ export default function SERVICES() {
     {
       name: "Smart MedTech Solutions",
       image: "/medtech.jpeg",
-      description:
-        "🔹 Custom IoT solutions for hospitals, industry & smart living.\n" +
-        "🔹 R&D & Prototyping with start-to-end product development.\n" +
-        "🔹 Collaboration with research institutions & hospitals for innovative solutions.\n" +
-        "🔹 Development of AI-powered health monitoring systems.",
+      description: [
+        "IoT-based systems for hospitals & smart environments.",
+        "Full-cycle product development: from prototype to deployment.",
+        "Collaborative projects with institutions and healthcare.",
+        "AI-powered diagnostics and health monitoring tools.",
+      ],
     },
     {
       name: "Smart Appointment Booking",
       image: "/onlinebooking.jpeg",
-      description:
-        "📅 Hassle-free patient appointment scheduling.\n" +
-        "📹 Seamless video consultations for remote care.\n" +
-        "💊 Secure e-prescriptions & health monitoring.\n" +
-        "🧪 Easy online lab test bookings for patients.\n" +
-        "📜 Instant digital report generation & sharing.\n" +
-        "📂 Digital patient records & history tracking.\n" +
-        "🔑 Secure access for doctors, staff, and admins.\n" +
-        "💳 Integrated billing & payment processing.\n" +
-        "🧠 AI-powered insights for better diagnosis.",
+      description: [
+        "Intuitive online booking & telehealth consultations.",
+        "Secure prescriptions, lab reports, and patient history.",
+        "Role-based access for doctors, staff & admins.",
+        "AI-powered data analysis & automated billing.",
+      ],
     },
     {
       name: "Internship Programs",
       image: "/internship.jpeg",
-      description:
-        "👨‍💻 Hands-on IoT & AI training for students.\n" +
-        "🚀 Industry-driven real-time projects with expert mentorship.",
+      description: [
+        "Project-based learning with hands-on IoT & AI tools.",
+        "Mentorship from industry experts on real-time products.",
+      ],
     },
   ];
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-b from-blue-100 via-white to-blue-50">
-      {/* Title with Decorative Bar */}
-      <h2 className="text-5xl font-extrabold pt-10 text-gray-900 text-center mb-12">
-        Our Services
-        <span className="block w-16 h-1 bg-yellow-500 mx-auto mt-2 rounded-lg"></span>
-      </h2>
+    <section className="py-20 px-4 sm:px-8 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+      <div className="max-w-7xl mx-auto text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl sm:text-5xl font-bold  text-blue-900 pt-7"
+        >
+          What We Offer
+        </motion.h2>
+        <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          Explore our innovative services designed to improve healthcare experiences and empower the next generation of tech creators.
+        </p>
+      </div>
 
-      {/* Services List */}
-      <div className="max-w-6xl mx-auto flex flex-col space-y-16">
+      {/* Service Cards */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
+      >
         {services.map((service, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className={`flex flex-col md:flex-row items-center gap-12 p-6 bg-white shadow-xl rounded-2xl border border-gray-200 ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            }`}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
           >
-            {/* Image Section */}
-            <motion.div
-              className="md:w-1/3 flex justify-center"
-              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              <img
-                src={service.image}
-                alt={service.name}
-                className="w-[320px] h-auto object-cover rounded-xl shadow-lg"
-              />
-            </motion.div>
-
-            {/* Description Section */}
-            <div className="md:w-2/3 text-center md:text-left">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">{service.name}</h3>
-              <p className="text-lg text-gray-700 whitespace-pre-line leading-loose">
-                {service.description}
-              </p>
+            <img
+              src={service.image}
+              alt={service.name}
+              className="h-48 w-full object-cover"
+            />
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold text-blue-900 mb-4">
+                {service.name}
+              </h3>
+              <ul className="text-gray-700 text-base space-y-2 list-disc list-inside text-left flex-grow">
+                {service.description.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

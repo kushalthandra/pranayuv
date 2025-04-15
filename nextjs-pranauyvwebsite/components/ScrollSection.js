@@ -42,8 +42,8 @@ const slides = [
 
 export default function ScrollSection() {
   return (
-    <section className="relative bg-[#e5e9ed] py-24 overflow-hidden">
-      {/* Floating background blobs */}
+    <section className="relative bg-gradient-to-b from-[#e5e9ed] via-white to-[#e5e9ed] py-24 overflow-hidden">
+      {/* Background Blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(6)].map((_, i) => {
           const size = 60 + Math.random() * 80;
@@ -64,14 +64,14 @@ export default function ScrollSection() {
         })}
       </div>
 
-      {/* Scrollable Cards Section */}
-      <div className="relative z-10 px-6 sm:px-10 lg:px-16">
-        <div className="border-4 border-black rounded-2xl overflow-x-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-200 bg-white/40 backdrop-blur-lg shadow-2xl">
-          <div className="flex gap-6 px-8 py-8 w-max">
+      {/* Scroll Cards */}
+      <div className="relative z-10 px-4 sm:px-10 lg:px-16">
+        <div className="rounded-2xl overflow-x-auto bg-white/30 backdrop-blur-md shadow-lg border border-white/40 p-4 sm:p-6">
+          <div className="flex gap-6 px-4 py-6 w-max scroll-smooth overflow-x-auto scroll-snap-x snap-x">
             {slides.map((slide, index) => (
               <motion.div
                 key={slide.id}
-                className="flex-shrink-0 w-[90vw] sm:w-[400px] bg-white shadow-xl rounded-2xl p-6 transition-all select-text"
+                className="flex-shrink-0 w-[85vw] sm:w-[400px] bg-white/70 shadow-md border border-gray-200 backdrop-blur-lg rounded-2xl p-5 hover:shadow-2xl transition-all duration-300 ease-in-out hover:-translate-y-1 snap-start"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -83,11 +83,11 @@ export default function ScrollSection() {
                   className="w-full h-48 object-cover rounded-xl mb-4"
                   loading="lazy"
                 />
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{slide.title}</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">{slide.title}</h2>
                 <p className="text-gray-700 mb-4">{slide.description}</p>
                 <Link href={slide.link}>
                   <motion.button
-                    className="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold text-md rounded-xl shadow-md hover:from-blue-600 hover:to-blue-800 transition"
+                    className="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -98,12 +98,12 @@ export default function ScrollSection() {
             ))}
           </div>
         </div>
-
-        {/* Swipe Hint for Mobile */}
-        <p className="mt-4 text-center text-sm text-gray-600 sm:hidden">
-          Swipe to next →
-        </p>
       </div>
+
+      {/* Hint */}
+      <p className="mt-6 text-center text-sm text-gray-600">
+        Swipe or scroll to explore →
+      </p>
     </section>
   );
 }
