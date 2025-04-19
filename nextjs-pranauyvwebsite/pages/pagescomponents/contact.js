@@ -2,8 +2,8 @@ import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase client
-const supabaseUrl ='https://krttladugepkfkwytzpp.supabase.co' ;
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtydHRsYWR1Z2Vwa2Zrd3l0enBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3Mzc2OTksImV4cCI6MjA1NjMxMzY5OX0.oUNn3a0V4GlnyNQVbhlZoSCxaHxQ2mWG8VJ-fwC0nnk';
+const supabaseUrl = "https://ekwdhimbdfmudviunyue.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrd2RoaW1iZGZtdWR2aXVueXVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ5NjY4MTMsImV4cCI6MjA2MDU0MjgxM30.FZIQ86fP42NGIpUUlE9gpp-iY_CErCaxei5UpV3XAY0";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function ContactForm() {
@@ -11,8 +11,11 @@ export default function ContactForm() {
     name: "",
     email: "",
     phone: "",
+    subject: "",
     query: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: "", type: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,71 +23,139 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      // Insert data into the Supabase table
       const { data, error } = await supabase
         .from("contact_form")
         .insert([formData]);
 
-      if (error) {
-        throw error;
-      }
+      if (error) throw error;
 
-      console.log("Data inserted successfully:", data);
-      alert("Form submitted successfully!");
-      setFormData({ name: "", email: "", phone: "", query: "" }); // Clear form
+      setMessage({ text: "✅ Your message has been sent!", type: "success" });
+      setFormData({ name: "", email: "", phone: "", subject: "", query: "" });
     } catch (error) {
-      console.error("Error inserting data:", error.message);
-      alert("An error occurred. Please try again.");
+      setMessage({ text: "❌ Something went wrong. Try again later.", type: "error" });
+    } finally {
+      setLoading(false);
+      setTimeout(() => setMessage({ text: "", type: "" }), 4000);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded"
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded"
-          />
-          <textarea
-            name="query"
-            placeholder="Your question"
-            value={formData.query}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded"
-          ></textarea>
+    <div className="relative min-h-screen pt-7 mt-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-300 via-white to-blue-300 px-6 py-10 animate-gradient-move">
+      {/* Floating Blobs */}
+      <div className="absolute top-8 left-10 w-40 h-40 bg-indigo-200 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-float-slow"></div>
+      <div className="absolute bottom-10 right-10 w-60 h-60 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float-fast"></div>
+
+      {/* PRANAYUV Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+      <h1 className="text-8xl md:text-[16rem] font-extrabold text-indigo-200 opacity-40 animate-watermark">
+  PRANAYUV
+</h1>
+      </div>
+
+      {/* Form Card */}
+      <div className="relative z-10 w-full opacity-60 max-w-3xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-10 transition-all duration-300 hover:scale-[1.01]">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-extrabold text-indigo-700 tracking-tight animate-pulse">
+            📨 Contact Our Team
+          </h2>
+          <p className="text-gray-600 mt-3 text-sm md:text-base">
+            Fill out the form below and we’ll get back to you shortly.
+          </p>
+        </div>
+
+        {message.text && (
+          <div
+            className={`mb-6 p-3 rounded-lg text-sm font-medium ${
+              message.type === "success"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="text-sm font-medium text-gray-700">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                placeholder="john@example.com"
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="text-sm font-medium text-gray-700">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                placeholder="+91 98765 43210"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                placeholder="Subject of your query"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">Message</label>
+            <textarea
+              name="query"
+              value={formData.query}
+              onChange={handleChange}
+              rows={5}
+              required
+              className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none resize-none"
+              placeholder="Describe your issue or feedback..."
+            ></textarea>
+          </div>
+
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            disabled={loading}
+            className={`w-full text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-lg ${
+              loading
+                ? "bg-indigo-300 cursor-not-allowed"
+                : "bg-indigo-600 hover:bg-indigo-700"
+            }`}
           >
-            Submit
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
