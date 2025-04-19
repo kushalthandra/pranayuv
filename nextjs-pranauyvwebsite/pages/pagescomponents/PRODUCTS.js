@@ -10,27 +10,28 @@ export default function PRODUCTS() {
     {
       id: 1,
       name: "RENCHAGE R0 AI-based Water Bottle",
-      image: "/bottle.jpg",
+      image: "/water-bottle.jpg",
       description: "An AI-powered water bottle that monitors hydration levels and provides smart reminders for optimal health."
     },
     {
       id: 2,
       name: "Ayuv Hybrid Bed V1 Bed to Wheelchair Conversion Product",
-      image: "/bed.jpeg",
+      image: "/bed.jpg",
       description: "A revolutionary bed that converts into a wheelchair, providing ease of movement for patients and the elderly."
     },
   ];
 
   return (
-    <motion.div 
-      className="min-h-screen bg-gray-200 text-black py-20 px-4 sm:px-6 pt-24"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
+    <motion.div
+  className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-100 text-black py-20 px-4 sm:px-6 pt-24"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+
       {/* Title */}
       <motion.h1 
-        className="text-4xl sm:text-5xl font-extrabold pt-7 text-gray-900 text-center mb-12"
+        className="text-4xl sm:text-5xl font-extrabold pt-7 text-blue-900 text-center mb-12"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}

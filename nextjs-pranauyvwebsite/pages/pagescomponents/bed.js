@@ -14,7 +14,7 @@ export default function HybridBedPage() {
       {/* Product Hero Section */}
       <section className="flex flex-col pt-7 lg:flex-row items-center justify-center text-center lg:text-left">
         <motion.img
-          src="/bed.jpeg" 
+          src="/bed.jpg" 
           alt="Ayuv Hybrid Bed V1"
           className="w-full sm:w-1/2 max-w-lg rounded-xl shadow-lg"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -37,7 +37,7 @@ export default function HybridBedPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            A revolutionary bed that seamlessly converts into a wheelchair, ensuring comfort and mobility for patients and elderly users.
+            A multifunctional hospital and home-care bed designed to ease mobility for bedridden patients.
           </motion.p>
           <motion.button
             onClick={() => router.push("/pagescomponents/Remindmeform")}
@@ -66,7 +66,10 @@ export default function HybridBedPage() {
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-xl font-bold">Bed to Wheelchair Transformation</h3>
-            <p className="text-gray-600 mt-2">Seamlessly converts from a bed to a wheelchair for increased mobility.</p>
+            <p className="text-gray-600 mt-2">●	Converts from bed to wheelchair seamlessly.</p>
+            <p className="text-gray-600 mt-2">●	Integrated IoT health monitoring system (vitals tracking).</p>
+            <p className="text-gray-600 mt-2">●	Built-in  sanitation module.</p>
+            <p className="text-gray-600 mt-2">●	Ideal for hospitals, rehabilitation centers, and home care.</p>
           </motion.div>
           <motion.div 
             className="p-6 bg-gray-100 rounded-xl shadow"

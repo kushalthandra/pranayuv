@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function SERVICES() {
   const services = [
@@ -39,7 +40,7 @@ export default function SERVICES() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-bold  text-blue-900 pt-7"
+          className="text-4xl sm:text-5xl font-bold text-blue-900 pt-7"
         >
           What We Offer
         </motion.h2>
@@ -62,9 +63,11 @@ export default function SERVICES() {
             transition={{ type: "spring", stiffness: 200 }}
             className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
           >
-            <img
+            <Image
               src={service.image}
               alt={service.name}
+              width={500}
+              height={300}
               className="h-48 w-full object-cover"
             />
             <div className="p-6 flex flex-col flex-grow">

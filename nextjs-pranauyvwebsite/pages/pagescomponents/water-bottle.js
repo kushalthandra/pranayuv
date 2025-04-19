@@ -66,7 +66,10 @@ export default function WaterBottlePage() {
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-xl font-bold">AI Hydration Monitoring</h3>
-            <p className="text-gray-600 mt-2">Tracks your water intake and reminds you to drink when needed.</p>
+            <p className="text-gray-600 mt-2">●	Tracks daily water intake </p>
+            <p className="text-gray-600 mt-2">●	Reminds you to drink water using AI-based alerts. </p>
+            <p className="text-gray-600 mt-2">●	Lightweight, durable, and affordable. </p>
+
           </motion.div>
           <motion.div 
             className="p-6 bg-gray-100 rounded-xl shadow"
