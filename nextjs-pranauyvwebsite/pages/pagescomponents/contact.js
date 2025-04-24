@@ -56,10 +56,10 @@ export default function ContactForm() {
       </div>
 
       {/* Form Card */}
-      <div className="relative z-10 w-full opacity-60 max-w-3xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-10 transition-all duration-300 hover:scale-[1.01]">
+      <div className="relative z-10 w-full opacity-70 max-w-3xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-10 transition-all duration-300 hover:scale-[1.01]">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-extrabold text-indigo-700 tracking-tight animate-pulse">
-            📨 Contact Our Team
+          <h2 className="text-4xl font-extrabold text-blue-700 tracking-widest ">
+             Contact Our Team
           </h2>
           <p className="text-gray-600 mt-3 text-sm md:text-base">
             Fill out the form below and we’ll get back to you shortly.
@@ -152,7 +152,7 @@ export default function ContactForm() {
             className={`w-full text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-lg ${
               loading
                 ? "bg-indigo-300 cursor-not-allowed"
-                : "bg-indigo-600 hover:bg-indigo-700"
+                : "bg-blue-600 hover:bg-indigo-700"
             }`}
           >
             {loading ? "Sending..." : "Send Message"}
