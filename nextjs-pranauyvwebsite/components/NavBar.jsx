@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { FaUserCircle } from 'react-icons/fa';
-import supabase from '../pages/supabaseClient';
+import supabase from '../utils/supabaseClient';
 
 function NavBar() {
   const [navbarOpen, setNavbarOpen] = useState(false);

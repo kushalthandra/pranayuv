@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import supabase from "./supabaseClient"; // Adjust path as needed
+import supabase from "../utils/supabaseClient"; // Adjust path as needed
 
 export default function Signup() {
   const [fullName, setFullName] = useState("");

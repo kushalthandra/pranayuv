@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import supabase from './supabaseClient'
+import supabase from '../utils/supabaseClient'
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
