@@ -116,6 +116,18 @@ export default function About() {
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
     {[
       {
+        name: "Kushal Thandra",
+        role: "Tech Lead - Software",
+        linkedin: "https://linkedin.com/in/kushal-thandra-ab2465189",
+        img: "/kushal.png"
+      },
+      {
+        name: "Dr. Srinivasarao Gummadi",
+        role: "Director – Advisory",
+        linkedin: "https://linkedin.com/in/dr-srinivasa-rao-gummadi-542a0771",
+        img: "/srinivas.png"
+      },
+      {
         name: "Ajay Polavarapu",
         role: "Director - Operations",
         linkedin: "https://linkedin.com/in/ajay-polavarapu-04a293255",
@@ -132,18 +144,6 @@ export default function About() {
         role: "Tech Lead - Hardware",
         linkedin: "https://linkedin.com",
         img: "/rayyan.png"
-      },
-      {
-        name: "Kushal Thandra",
-        role: "Tech Lead - Software",
-        linkedin: "https://linkedin.com/in/kushal-thandra-ab2465189",
-        img: "/kushal.png"
-      },
-      {
-        name: "Dr. Srinivasarao Gummadi",
-        role: "Director – Advisory",
-        linkedin: "https://linkedin.com/in/dr-srinivasa-rao-gummadi-542a0771",
-        img: "/srinivas.png"
       }
     ].map((p, i) => (
       <motion.div
